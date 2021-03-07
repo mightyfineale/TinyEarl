@@ -1,0 +1,21 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\breen\.dotnet\shared\Microsoft.AspNetCore.App\5.0.3\Microsoft.JSInterop.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=09ef24c6_002D2ca9_002D45c2_002D8826_002D9406c76eb78a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CallDb #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::F4B11529-3940-30FB-6A80-5321D2290736::net5.0::BlazorApp.Services.RandomAliasGeneratorTests.GenerateAlias_Should_GenerateValidAlias&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::F4B11529-3940-30FB-6A80-5321D2290736::net5.0::BlazorApp.Services.RandomAliasGeneratorTests.GenerateAlias_AdditionOfValidCharacter_Should_NotMatchRegex&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::F4B11529-3940-30FB-6A80-5321D2290736::net5.0::BlazorApp.Services.RandomAliasGeneratorTests.GenerateAliasx10000_Should_GenerateValidDifferentAlias&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a5bdc53f_002D2b91_002D410d_002Da215_002D0870526678cc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GenerateAlias_Should_GenerateValidAlias" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::F4B11529-3940-30FB-6A80-5321D2290736::net5.0::BlazorApp.Services.RandomAliasGeneratorTests.GenerateAlias_Should_GenerateValidAlias&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e44142d0_002D0b08_002D4609_002D9cd5_002D4f4482cba8c9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CallDb" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::F4B11529-3940-30FB-6A80-5321D2290736::net5.0::BlazorApp.Services.SqlServerUrlServiceTest.CallDb&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

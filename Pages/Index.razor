@@ -1,0 +1,72 @@
+@page "/"
+@using Microsoft.Extensions.Configuration
+@using BlazorApp.Alias
+@using BlazorApp.Services
+@using System.Text.RegularExpressions
+@inject IConfiguration Configuration
+@inject RandomAliasGenerator Generator
+@inject SqlServerUrlService UrlService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<div id="urlForm" class="d-inline-flex p2 border border-primary rounded">
+        <EditForm Model="@_urlAlias">
+            <div class="form-group">
+                <label for="yourUrl">Your Link</label>
+            </div>
+            <div class="form-group">
+                <InputText id="yourUrl" @bind-Value=_urlAlias.Url />
+            </div>
+            <div class="form-group">
+                <label for="yourAlias">Your Tiny Earl</label>
+            </div>
+            <div class="form-group">
+                <InputText id="yourAlias"@bind-Value=_urlAlias.Alias />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" @onclick="GetAliasFromService">Earl Me</button>
+                <button class="btn btn-primary" @onclick="CopyTextToClipboard">Copy Earl</button>
+            </div>
+        </EditForm>
+
+    
+    </div>
+
+
+@code {
+    readonly UrlData _urlAlias = new();
+
+    class UrlData {
+        public string Url { get; set; }
+        public string Alias { get; set; }
+    }
+
+    private async void GetAliasFromService() {
+        if (!ValidateUrl(_urlAlias.Url)) {
+            await JsRuntime.InvokeVoidAsync("alert", Constants.ValidUrlWarning);
+            return;
+        }
+        string aliasSuffix;
+        
+        try {
+            aliasSuffix = await UrlService.GetUrlAlias(_urlAlias.Url, Generator.GenerateAlias());
+        }
+        catch (Exception e) {
+            await JsRuntime.InvokeVoidAsync("alert", Constants.UnexpectedErrorWarning);
+            return;
+        }
+        
+        if (string.Equals(aliasSuffix, Constants.AliasAlreadyUsed))
+            GetAliasFromService();
+
+        _urlAlias.Alias = $"{NavigationManager.BaseUri}{aliasSuffix}";
+    }
+
+    private bool ValidateUrl(string url) {
+        return !string.IsNullOrWhiteSpace(url) && Regex.IsMatch(url, Constants.ValidUrlRegex);
+    }
+
+    private async Task CopyTextToClipboard() {
+        await JsRuntime.InvokeVoidAsync("navigator.clipboard.writeText", _urlAlias.Alias);
+    }
+}

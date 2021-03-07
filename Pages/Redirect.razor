@@ -1,0 +1,29 @@
+﻿@page "/{Link}"
+@using BlazorApp.Services
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+@inject SqlServerUrlService UrlService
+
+<h3>Redirect</h3>
+
+@code {
+    [Parameter]
+    public string Link { get; set; }
+
+    protected override async Task OnInitializedAsync() {
+        string url;
+        try {
+            url = await UrlService.GetFullUrl(Link);
+        }
+        catch (Exception e) {
+            await JsRuntime.InvokeVoidAsync("alert", Constants.UnexpectedErrorWarning);
+            return;
+        }
+        
+        if (string.Equals(url,Constants.AliasNotFound))
+            NavigationManager.NavigateTo("Oops");
+        
+        NavigationManager.NavigateTo(url);
+    }
+
+}
